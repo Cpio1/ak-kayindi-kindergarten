@@ -152,7 +152,9 @@ export const ru: Dictionary = {
   documents: {
     eyebrow: "Документы",
     title: "Документы",
-    open: "Открыть",
+    folder: "Документы детского сада",
+    folderNote: "Папка на Google Диске",
+    view: "Посмотреть документы",
   },
 
   contacts: {

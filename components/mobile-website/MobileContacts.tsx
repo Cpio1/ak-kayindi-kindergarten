@@ -15,7 +15,7 @@ export function MobileContacts() {
   const { t, locale } = useLanguage();
 
   return (
-    <section id={sectionIds.contacts} tabIndex={-1} aria-labelledby="m-contacts-title" className="py-9 outline-none">
+    <section id={sectionIds.contacts} tabIndex={-1} aria-labelledby="m-contacts-title" className="py-7 outline-none">
       <div className="container-mobile">
         <Reveal>
           <p className="eyebrow">
@@ -29,7 +29,7 @@ export function MobileContacts() {
         </Reveal>
 
         {/* Главные действия — сразу, крупными кнопками */}
-        <Reveal className="mt-5 grid grid-cols-2 gap-2.5">
+        <Reveal className="mt-4 grid grid-cols-2 gap-2.5">
           <a href={c.phoneHref} className="btn btn-primary min-h-14">
             <Phone className="size-5" aria-hidden="true" />
             {t.ui.call}
@@ -42,7 +42,7 @@ export function MobileContacts() {
 
         <Reveal className="mt-4 overflow-hidden rounded-[24px] bg-white shadow-soft ring-1 ring-sage-100">
           <dl className="divide-y divide-sage-100">
-            <div className="flex gap-3 p-4">
+            <div className="flex gap-3 px-4 py-3">
               <MapPin className="mt-0.5 size-5 shrink-0 text-forest" aria-hidden="true" />
               <div>
                 <dt className="text-[13px] font-bold text-ink-soft">{t.contacts.address}</dt>
@@ -51,7 +51,7 @@ export function MobileContacts() {
                 </dd>
               </div>
             </div>
-            <div className="flex gap-3 p-4">
+            <div className="flex gap-3 px-4 py-3">
               <Phone className="mt-0.5 size-5 shrink-0 text-forest" aria-hidden="true" />
               <div>
                 <dt className="text-[13px] font-bold text-ink-soft">{t.contacts.phone}</dt>
@@ -62,7 +62,7 @@ export function MobileContacts() {
                 </dd>
               </div>
             </div>
-            <div className="flex gap-3 p-4">
+            <div className="flex gap-3 px-4 py-3">
               <Clock className="mt-0.5 size-5 shrink-0 text-forest" aria-hidden="true" />
               <div>
                 <dt className="text-[13px] font-bold text-ink-soft">{t.contacts.hours}</dt>
@@ -76,7 +76,7 @@ export function MobileContacts() {
         </Reveal>
 
         <Reveal className="relative mt-4 overflow-hidden rounded-[24px] shadow-soft ring-1 ring-sage-100">
-          <MapEmbed className="h-[260px]" />
+          <MapEmbed className="aspect-[16/10] w-full" />
         </Reveal>
         <a href={c.twoGisHref} target="_blank" rel="noopener noreferrer" className="btn btn-sun mt-3 min-h-14 w-full">
           <Navigation className="size-5" aria-hidden="true" />

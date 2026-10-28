@@ -24,7 +24,7 @@ export function Gallery() {
       type="button"
       onClick={() => setLightboxIndex(index)}
       aria-label={`${t.gallery.open}: ${t.gallery.alts[photo.id]}`}
-      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-[26px] bg-sage-100 shadow-soft"
+      className="group relative block aspect-[3/2] w-full overflow-hidden rounded-[22px] bg-sage-100 shadow-soft"
     >
       <Image
         src={photo.src}
@@ -48,7 +48,7 @@ export function Gallery() {
       className="relative"
     >
       <Wave className="block h-10 w-full" fill="var(--color-sage-50)" />
-      <div className="relative bg-sage-50 pb-14 pt-6 xl:pb-16">
+      <div className="relative bg-sage-50 pb-10 pt-4 xl:pb-12">
         <Cloud className="pointer-events-none absolute right-[6%] top-0 w-28 opacity-90" />
 
         <div className="container-site">
@@ -58,14 +58,14 @@ export function Gallery() {
                 <BirchLeaf className="size-3.5" />
                 {t.gallery.eyebrow}
               </p>
-              <h2 id="gallery-title" className="mt-2 text-[34px] font-semibold leading-tight text-forest xl:text-[38px]">
+              <h2 id="gallery-title" className="mt-1.5 text-[34px] font-semibold leading-tight text-forest xl:text-[38px]">
                 {t.gallery.title}
               </h2>
             </div>
             <p className="max-w-sm pb-1 text-[16px] text-ink-soft">{t.gallery.lead}</p>
           </Reveal>
 
-          <Stagger as="ul" className="mt-7 grid grid-cols-3 gap-5">
+          <Stagger as="ul" className="mt-5 grid grid-cols-3 gap-4">
             {initial.map((photo, i) => (
               <StaggerItem as="li" key={photo.id}>
                 {tile(photo, i)}
@@ -83,7 +83,7 @@ export function Gallery() {
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <ul id="gallery-extra" className="grid grid-cols-3 gap-5 pt-5">
+                <ul id="gallery-extra" className="grid grid-cols-3 gap-4 pt-4">
                   {extra.map((photo, i) => (
                     <li key={photo.id}>{tile(photo, initial.length + i)}</li>
                   ))}
@@ -93,7 +93,7 @@ export function Gallery() {
           </AnimatePresence>
 
           {extra.length > 0 && (
-            <div className="mt-7 flex justify-center">
+            <div className="mt-5 flex justify-center">
               <button
                 type="button"
                 onClick={toggle}
@@ -111,7 +111,7 @@ export function Gallery() {
           )}
 
           {/* Видео из Instagram — отдельным спокойным блоком */}
-          <div className="mt-14 grid grid-cols-12 items-center gap-10 rounded-[36px] bg-milk p-8 shadow-soft ring-1 ring-sage-100 xl:p-10">
+          <div className="mt-10 grid grid-cols-12 items-center gap-8 rounded-[32px] bg-milk p-6 shadow-soft ring-1 ring-sage-100 xl:p-8">
             <Reveal className="col-span-6 col-start-1">
               <p className="eyebrow">
                 <InstagramIcon className="size-4" />
@@ -131,7 +131,7 @@ export function Gallery() {
               </a>
             </Reveal>
             <Reveal className="col-span-5 col-start-8 flex justify-center" delay={0.1}>
-              <InstagramReel className="h-[560px] w-[330px]" />
+              <InstagramReel className="aspect-[9/16] w-full max-w-[290px]" />
             </Reveal>
           </div>
         </div>

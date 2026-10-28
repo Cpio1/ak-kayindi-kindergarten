@@ -1,14 +1,14 @@
 "use client";
 
-import { ExternalLink, FileText } from "lucide-react";
+import { ExternalLink, FolderOpen } from "lucide-react";
 import { kindergarten } from "@/data/kindergarten";
 import { BirchLeaf } from "@/components/shared/Decor";
 import { useLanguage } from "@/components/shared/LanguageProvider";
 import { hasDocuments, sectionIds } from "@/components/shared/sections";
 
-// Компактные карточки; раздел скрыт, пока в данных нет реальных ссылок
+// Карточка-ссылка на папку Google Диска; раздел скрыт, пока ссылка не задана
 export function MobileDocuments() {
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
   if (!hasDocuments) return null;
 
   return (
@@ -19,26 +19,26 @@ export function MobileDocuments() {
           {t.documents.eyebrow}
         </p>
         <h2 id="m-documents-title" className="mt-1.5 text-[28px] font-semibold text-forest">{t.documents.title}</h2>
-        <ul className="mt-4 grid gap-2.5">
-          {kindergarten.documents.map((doc) => (
-            <li key={doc.id} className="flex items-center gap-3 rounded-[20px] bg-white px-4 py-3 shadow-soft ring-1 ring-sage-100">
-              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-sage-50 text-forest">
-                <FileText className="size-5" aria-hidden="true" />
-              </span>
-              <span className="flex-1 text-[16px] font-semibold text-ink">{doc.title[locale]}</span>
-              <a
-                href={doc.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${t.documents.open}: ${doc.title[locale]}`}
-                className="btn btn-ghost min-h-10 shrink-0 px-3.5 text-[15px]"
-              >
-                {t.documents.open}
-                <ExternalLink className="size-4" aria-hidden="true" />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-4 rounded-[22px] bg-white p-4 shadow-soft ring-1 ring-sage-100">
+          <div className="flex items-center gap-3">
+            <span className="grid size-11 shrink-0 place-items-center rounded-full bg-sage-50 text-forest">
+              <FolderOpen className="size-5" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block text-[16px] font-semibold text-ink">{t.documents.folder}</span>
+              <span className="block text-[14px] text-ink-soft">{t.documents.folderNote}</span>
+            </span>
+          </div>
+          <a
+            href={kindergarten.documentsFolderHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary mt-4 w-full"
+          >
+            {t.documents.view}
+            <ExternalLink className="size-4" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   );

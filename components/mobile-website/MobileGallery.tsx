@@ -29,7 +29,7 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
       type="button"
       onClick={() => setIndex(index)}
       aria-label={`${t.gallery.open}: ${t.gallery.alts[photo.id]}`}
-      className="relative block aspect-[4/5] w-full overflow-hidden rounded-[20px] bg-sage-100 shadow-soft active:scale-[0.98] sm:aspect-[4/3]"
+      className="relative block aspect-[4/3] w-full overflow-hidden rounded-[16px] bg-sage-100 shadow-soft active:scale-[0.98]"
     >
       <Image
         src={photo.src}
@@ -45,7 +45,7 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
   return (
     <section ref={sectionRef} id={sectionIds.gallery} tabIndex={-1} aria-labelledby="m-gallery-title" className="outline-none">
       <Wave className="block h-7 w-full" fill="var(--color-sage-50)" />
-      <div className="bg-sage-50 pb-9 pt-3">
+      <div className="bg-sage-50 pb-7 pt-2">
         <div className="container-mobile">
           <Reveal>
             <p className="eyebrow">
@@ -58,7 +58,7 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
             <p className="mt-2 text-[16px] text-ink-soft">{t.gallery.lead}</p>
           </Reveal>
 
-          <Stagger as="ul" className="mt-5 grid grid-cols-2 gap-2.5 sm:gap-3">
+          <Stagger as="ul" className="mt-4 grid grid-cols-2 gap-2 sm:gap-3">
             {initial.map((photo, i) => (
               <StaggerItem as="li" key={photo.id}>
                 {tile(photo, i)}
@@ -76,7 +76,7 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <ul id="m-gallery-extra" className="grid grid-cols-2 gap-2.5 pt-2.5 sm:gap-3 sm:pt-3">
+                <ul id="m-gallery-extra" className="grid grid-cols-2 gap-2 pt-2 sm:gap-3 sm:pt-3">
                   {extra.map((photo, i) => (
                     <li key={photo.id}>{tile(photo, initial.length + i)}</li>
                   ))}
@@ -91,7 +91,7 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
               onClick={toggle}
               aria-expanded={expanded}
               aria-controls="m-gallery-extra"
-              className="btn btn-ghost mt-5 min-h-[52px] w-full bg-white"
+              className="btn btn-ghost mt-4 min-h-[52px] w-full bg-white"
             >
               {expanded ? t.gallery.less : `${t.gallery.more} · ${extra.length}`}
               <ChevronDown className={`size-4 transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
@@ -99,7 +99,7 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
           )}
 
           {/* Видео из Instagram */}
-          <Reveal className="mt-9 rounded-[28px] bg-milk p-4 pb-5 shadow-soft ring-1 ring-sage-100">
+          <Reveal className="mt-7 rounded-[24px] bg-milk p-4 shadow-soft ring-1 ring-sage-100">
             <div className="px-1">
               <p className="eyebrow">
                 <InstagramIcon className="size-4" />
@@ -108,7 +108,7 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
               <h3 className="mt-1 text-[22px] font-semibold text-forest">{t.video.title}</h3>
               <p className="mt-1.5 text-[16px] leading-relaxed text-ink-soft">{t.video.text}</p>
             </div>
-            <InstagramReel className="mx-auto mt-4 h-[520px] w-full max-w-[340px]" />
+            <InstagramReel className="mx-auto mt-4 aspect-[9/16] w-full max-w-[270px]" />
             <a
               href={kindergarten.contacts.instagramReelHref}
               target="_blank"

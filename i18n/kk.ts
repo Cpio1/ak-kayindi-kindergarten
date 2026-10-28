@@ -142,7 +142,9 @@ export const kk = {
   documents: {
     eyebrow: "Құжаттар",
     title: "Құжаттар",
-    open: "Ашу",
+    folder: "Балабақша құжаттары",
+    folderNote: "Google Дискідегі папка",
+    view: "Құжаттарды қарау",
   },
 
   contacts: {

@@ -67,12 +67,11 @@ export const kindergarten = {
   ],
 
   /**
-   * Документы. На исходном сайте ссылок на документы нет, поэтому список пуст
-   * и раздел «Құжаттар / Документы» не выводится. Чтобы раздел появился,
-   * добавьте элементы вида:
-   * { id: "license", href: "https://drive.google.com/...", title: { kk: "…", ru: "…" } }
+   * Папка с документами на Google Диске. Пока ссылка пустая, раздел
+   * «Құжаттар / Документы» и пункт меню не выводятся. Вставьте ссылку вида
+   * "https://drive.google.com/drive/folders/..." — папка должна быть открыта по ссылке.
    */
-  documents: [] as { id: string; href: string; title: Localized }[],
+  documentsFolderHref: "" as string,
 } as const;
 
 export type GroupId = (typeof kindergarten.groups)[number]["id"];

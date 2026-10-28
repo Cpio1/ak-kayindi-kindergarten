@@ -11,7 +11,7 @@ export const sectionIds = {
   contacts: "contacts",
 } as const;
 
-export const hasDocuments = kindergarten.documents.length > 0;
+export const hasDocuments = kindergarten.documentsFolderHref.length > 0;
 
 type NavKey = keyof Dictionary["nav"];
 
