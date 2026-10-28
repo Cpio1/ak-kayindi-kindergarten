@@ -4,12 +4,12 @@ import { ExternalLink, FolderOpen } from "lucide-react";
 import { kindergarten } from "@/data/kindergarten";
 import { BirchLeaf } from "@/components/shared/Decor";
 import { useLanguage } from "@/components/shared/LanguageProvider";
-import { hasDocuments, sectionIds } from "@/components/shared/sections";
+import { sectionIds } from "@/components/shared/sections";
 
-// Карточка-ссылка на папку Google Диска; раздел скрыт, пока ссылка не задана
+// Карточка-ссылка на папку Google Диска; без ссылки кнопка неактивна
 export function MobileDocuments() {
   const { t } = useLanguage();
-  if (!hasDocuments) return null;
+  const href = kindergarten.documentsFolderHref;
 
   return (
     <section id={sectionIds.documents} tabIndex={-1} aria-labelledby="m-documents-title" className="py-8 outline-none">
@@ -29,15 +29,16 @@ export function MobileDocuments() {
               <span className="block text-[14px] text-ink-soft">{t.documents.folderNote}</span>
             </span>
           </div>
-          <a
-            href={kindergarten.documentsFolderHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary mt-4 w-full"
-          >
-            {t.documents.view}
-            <ExternalLink className="size-4" aria-hidden="true" />
-          </a>
+          {href ? (
+            <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-4 w-full">
+              {t.documents.view}
+              <ExternalLink className="size-4" aria-hidden="true" />
+            </a>
+          ) : (
+            <button type="button" disabled className="btn mt-4 w-full cursor-not-allowed bg-sage-100 text-ink-soft">
+              {t.documents.soon}
+            </button>
+          )}
         </div>
       </div>
     </section>

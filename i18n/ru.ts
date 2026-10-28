@@ -155,6 +155,7 @@ export const ru: Dictionary = {
     folder: "Документы детского сада",
     folderNote: "Папка на Google Диске",
     view: "Посмотреть документы",
+    soon: "Скоро подключим",
   },
 
   contacts: {

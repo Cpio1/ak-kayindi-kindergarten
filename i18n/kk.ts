@@ -145,6 +145,7 @@ export const kk = {
     folder: "Балабақша құжаттары",
     folderNote: "Google Дискідегі папка",
     view: "Құжаттарды қарау",
+    soon: "Жақында қосылады",
   },
 
   contacts: {

@@ -5,12 +5,12 @@ import { kindergarten } from "@/data/kindergarten";
 import { BirchLeaf } from "@/components/shared/Decor";
 import { useLanguage } from "@/components/shared/LanguageProvider";
 import { Reveal } from "@/components/shared/Reveal";
-import { hasDocuments, sectionIds } from "@/components/shared/sections";
+import { sectionIds } from "@/components/shared/sections";
 
-// Одна карточка-ссылка на папку Google Диска; выводится, только если ссылка задана в data/kindergarten.ts
+// Одна карточка-ссылка на папку Google Диска; без ссылки в data/kindergarten.ts кнопка неактивна
 export function Documents() {
   const { t } = useLanguage();
-  if (!hasDocuments) return null;
+  const href = kindergarten.documentsFolderHref;
 
   return (
     <section id={sectionIds.documents} aria-labelledby="documents-title" className="py-12">
@@ -31,15 +31,16 @@ export function Documents() {
               <span className="block text-[18px] font-semibold text-ink">{t.documents.folder}</span>
               <span className="mt-0.5 block text-[15px] text-ink-soft">{t.documents.folderNote}</span>
             </span>
-            <a
-              href={kindergarten.documentsFolderHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary shrink-0"
-            >
-              {t.documents.view}
-              <ExternalLink className="size-4" aria-hidden="true" />
-            </a>
+            {href ? (
+              <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-primary shrink-0">
+                {t.documents.view}
+                <ExternalLink className="size-4" aria-hidden="true" />
+              </a>
+            ) : (
+              <button type="button" disabled className="btn shrink-0 cursor-not-allowed bg-sage-100 text-ink-soft">
+                {t.documents.soon}
+              </button>
+            )}
           </div>
         </Reveal>
       </div>
