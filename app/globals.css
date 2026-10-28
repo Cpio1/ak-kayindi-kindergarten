@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/* Палитра и шрифты проекта. Цвета доступны как bg-milk, text-forest и т. д. */
+@theme {
+  --color-milk: #faf8f1;
+  --color-cream: #f4f1e6;
+  --color-sage: #a8be9e;
+  --color-sage-50: #eef3ea;
+  --color-sage-100: #dfe8d9;
+  --color-forest: #355846;
+  --color-forest-dark: #2a4637;
+  --color-sun: #f3d986;
+  --color-sun-50: #fbf2d4;
+  --color-ink: #29352e;
+  --color-ink-soft: #4d5a52;
+  --color-bark: #3b3f3a;
+
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-lora), ui-serif, Georgia, serif;
+
+  --shadow-soft: 0 1px 2px rgb(41 53 46 / 0.04), 0 8px 24px -12px rgb(41 53 46 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(41 53 46 / 0.05), 0 18px 40px -20px rgb(41 53 46 / 0.28);
+}
+
+@layer base {
+  html {
+    /* Отступ под фиксированную шапку при переходе по якорям */
+    scroll-padding-top: 76px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: var(--color-milk);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-sun);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-forest);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+
+  [data-on-dark] :focus-visible,
+  [data-on-dark]:focus-visible {
+    outline-color: var(--color-sun);
+  }
+}
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 32px;
+  }
+
+  .container-mobile {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+
+  @media (min-width: 600px) {
+    .container-mobile {
+      padding-inline: 28px;
+    }
+  }
+
+  /* Органическая форма для фотографий */
+  .blob {
+    border-radius: 58% 42% 46% 54% / 48% 56% 44% 52%;
+  }
+
+  .blob-alt {
+    border-radius: 44% 56% 62% 38% / 52% 40% 60% 48%;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.4rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.2;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-forest);
+    color: var(--color-milk);
+    box-shadow: 0 10px 22px -12px rgb(53 88 70 / 0.7);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-forest-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-forest);
+    box-shadow: inset 0 0 0 1.5px rgb(53 88 70 / 0.35);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-sage-50);
+    box-shadow: inset 0 0 0 1.5px var(--color-forest);
+  }
+
+  .btn-sun {
+    background: var(--color-sun);
+    color: var(--color-ink);
+  }
+
+  .btn-sun:hover {
+    background: #eccd6a;
+    transform: translateY(-1px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-forest);
+    letter-spacing: 0.01em;
+  }
+
+  /* Берёзовая «кора» — тонкая полоска-разделитель */
+  .birch-line {
+    height: 6px;
+    border-radius: 99px;
+    background:
+      linear-gradient(90deg, transparent 0 14%, var(--color-bark) 14% 19%, transparent 19% 46%, var(--color-bark) 46% 49%, transparent 49% 78%, var(--color-bark) 78% 84%, transparent 84%),
+      #ffffff;
+    box-shadow: inset 0 0 0 1px rgb(41 53 46 / 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
