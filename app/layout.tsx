@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t.meta.title,
     description: t.meta.description,
-    applicationName: "Ақ қайың",
+    applicationName: "Ақ-Кайын",
     icons: { icon: "/icon.svg", apple: kindergarten.images.logo.src },
     openGraph: {
       type: "website",

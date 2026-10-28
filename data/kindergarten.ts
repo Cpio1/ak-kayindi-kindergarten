@@ -1,5 +1,5 @@
 /**
- * Единый источник фактов о садике «Ақ қайың».
+ * Единый источник фактов о садике «Ақ-Кайын».
  *
  * Все сведения взяты с официального сайта https://sites.google.com/view/akkayinsad
  * (страницы «Главная», «Біз туралы / О нас», «Топтар / Группы», «Контакты»).
@@ -64,6 +64,19 @@ export const kindergarten = {
     { id: "lockers", src: "/images/gallery/photo-07.jpg", width: 1536, height: 1152, position: "50% 50%" },
     { id: "drawing", src: "/images/gallery/photo-08.jpg", width: 1200, height: 1032, position: "50% 45%" },
     { id: "holiday", src: "/images/gallery/photo-09.jpg", width: 1082, height: 1082, position: "50% 45%" },
+    { id: "groupRoom", src: "/images/gallery/image1.jpeg", width: 1179, height: 1549, position: "50% 55%" },
+    { id: "roomBeds", src: "/images/gallery/image2.jpeg", width: 1179, height: 1563, position: "50% 50%" },
+    { id: "roomAnimals", src: "/images/gallery/image3.jpeg", width: 1179, height: 1586, position: "50% 45%" },
+    { id: "roomSpace", src: "/images/gallery/image4.jpeg", width: 1179, height: 1549, position: "50% 50%" },
+    { id: "beds", src: "/images/gallery/image5.jpeg", width: 1179, height: 826, position: "50% 50%" },
+    { id: "playground", src: "/images/gallery/image6.jpeg", width: 1179, height: 1579, position: "50% 55%" },
+    { id: "building", src: "/images/gallery/image7.jpeg", width: 1179, height: 873, position: "50% 45%" },
+    { id: "yard", src: "/images/gallery/image8.jpeg", width: 1179, height: 912, position: "50% 50%" },
+    { id: "hallway", src: "/images/gallery/image9.jpeg", width: 1179, height: 1573, position: "50% 50%" },
+    { id: "hall", src: "/images/gallery/image10.jpeg", width: 1179, height: 1580, position: "50% 40%" },
+    { id: "kazakhCorner", src: "/images/gallery/image11.jpeg", width: 1125, height: 1525, position: "50% 45%" },
+    { id: "diningRoom", src: "/images/gallery/image12.jpeg", width: 1125, height: 1586, position: "50% 50%" },
+    { id: "republicDay", src: "/images/gallery/image13.jpeg", width: 1200, height: 1600, position: "50% 65%" },
   ],
 
   /**
