@@ -2,11 +2,9 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, ExternalLink } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { kindergarten } from "@/data/kindergarten";
-import { InstagramIcon } from "@/components/shared/BrandIcons";
 import { BirchLeaf, Wave } from "@/components/shared/Decor";
-import { InstagramReel } from "@/components/shared/InstagramReel";
 import { Lightbox } from "@/components/shared/Lightbox";
 import { useLanguage } from "@/components/shared/LanguageProvider";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/Reveal";
@@ -97,28 +95,6 @@ export function MobileGallery({ onLightboxChange }: { onLightboxChange: (open: b
               <ChevronDown className={`size-4 transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
             </button>
           )}
-
-          {/* Видео из Instagram */}
-          <Reveal className="mt-7 rounded-[24px] bg-milk p-4 shadow-soft ring-1 ring-sage-100">
-            <div className="px-1">
-              <p className="eyebrow">
-                <InstagramIcon className="size-4" />
-                {t.video.eyebrow}
-              </p>
-              <h3 className="mt-1 text-[22px] font-semibold text-forest">{t.video.title}</h3>
-              <p className="mt-1.5 text-[16px] leading-relaxed text-ink-soft">{t.video.text}</p>
-            </div>
-            <InstagramReel className="mx-auto mt-4 aspect-[9/16] w-full max-w-[270px]" />
-            <a
-              href={kindergarten.contacts.instagramReelHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost mt-4 min-h-[52px] w-full"
-            >
-              {t.video.open}
-              <ExternalLink className="size-4" aria-hidden="true" />
-            </a>
-          </Reveal>
         </div>
       </div>
       <Wave className="block h-7 w-full bg-sage-50" fill="var(--color-milk)" />

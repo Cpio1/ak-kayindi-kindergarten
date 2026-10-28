@@ -2,11 +2,9 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, ExternalLink, Expand } from "lucide-react";
+import { ChevronDown, Expand } from "lucide-react";
 import { kindergarten } from "@/data/kindergarten";
-import { InstagramIcon } from "@/components/shared/BrandIcons";
 import { BirchLeaf, Cloud, Wave } from "@/components/shared/Decor";
-import { InstagramReel } from "@/components/shared/InstagramReel";
 import { Lightbox } from "@/components/shared/Lightbox";
 import { useLanguage } from "@/components/shared/LanguageProvider";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/Reveal";
@@ -109,31 +107,6 @@ export function Gallery() {
               </button>
             </div>
           )}
-
-          {/* Видео из Instagram — отдельным спокойным блоком */}
-          <div className="mt-10 grid grid-cols-12 items-center gap-8 rounded-[32px] bg-milk p-6 shadow-soft ring-1 ring-sage-100 xl:p-8">
-            <Reveal className="col-span-6 col-start-1">
-              <p className="eyebrow">
-                <InstagramIcon className="size-4" />
-                {t.video.eyebrow}
-              </p>
-              <h3 className="mt-2 text-[30px] font-semibold leading-tight text-forest">{t.video.title}</h3>
-              <p className="mt-3 max-w-md text-[16.5px] leading-relaxed text-ink-soft">{t.video.text}</p>
-              <a
-                href={kindergarten.contacts.instagramReelHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-ghost mt-6"
-              >
-                <InstagramIcon className="size-4.5" />
-                {t.video.open}
-                <ExternalLink className="size-4" aria-hidden="true" />
-              </a>
-            </Reveal>
-            <Reveal className="col-span-5 col-start-8 flex justify-center" delay={0.1}>
-              <InstagramReel className="aspect-[9/16] w-full max-w-[290px]" />
-            </Reveal>
-          </div>
         </div>
       </div>
       <Wave className="block h-10 w-full bg-sage-50" fill="var(--color-milk)" />
