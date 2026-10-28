@@ -22,22 +22,25 @@ export function Documents() {
           </p>
           <h2 id="documents-title" className="mt-2 text-[34px] font-semibold text-forest">{t.documents.title}</h2>
         </Reveal>
-        <Stagger as="ul" className="mt-6 grid grid-cols-2 gap-3">
+        <Stagger as="ul" className="mt-6 grid grid-cols-3 gap-3">
           {kindergarten.documents.map((doc) => (
             <StaggerItem as="li" key={doc.id}>
-              <a
-                href={doc.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 rounded-[20px] bg-white px-5 py-4 shadow-soft ring-1 ring-sage-100 transition hover:-translate-y-0.5"
-              >
-                <FileText className="size-6 shrink-0 text-forest" aria-hidden="true" />
+              <div className="flex h-full items-center gap-4 rounded-[20px] bg-white px-5 py-4 shadow-soft ring-1 ring-sage-100">
+                <span className="grid size-11 shrink-0 place-items-center rounded-full bg-sage-50 text-forest">
+                  <FileText className="size-5" aria-hidden="true" />
+                </span>
                 <span className="flex-1 font-semibold text-ink">{doc.title[locale]}</span>
-                <span className="inline-flex items-center gap-1.5 text-[15px] font-bold text-forest">
+                <a
+                  href={doc.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t.documents.open}: ${doc.title[locale]}`}
+                  className="btn btn-ghost min-h-10 shrink-0 px-4 text-[15px]"
+                >
                   {t.documents.open}
                   <ExternalLink className="size-4" aria-hidden="true" />
-                </span>
-              </a>
+                </a>
+              </div>
             </StaggerItem>
           ))}
         </Stagger>
